@@ -7,7 +7,9 @@ with an easy installer for a client. Laura confirmed Windows 10 and 11, entirely
 offline installation, and primarily English recordings.
 
 This standalone project lives separately from the Chicken Workshops website.
-The website was not edited or published. No repository or release was uploaded.
+The website was not edited or published. At Laura's request, the private source
+repository was created at https://github.com/LauraFlorey/wav-scribe. Its default
+branch is `main`. No installer release has been uploaded.
 
 ## Implementation
 
