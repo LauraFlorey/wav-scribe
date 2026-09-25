@@ -9,7 +9,10 @@ offline installation, and primarily English recordings.
 This standalone project lives separately from the Chicken Workshops website.
 The website was not edited or published. At Laura's request, the private source
 repository was created at https://github.com/LauraFlorey/wav-scribe. Its default
-branch is `main`. No installer release has been uploaded.
+branch is `main`. The unsigned installer is available for Windows testing in the
+private [v0.1.0-preview.1 prerelease](https://github.com/LauraFlorey/wav-scribe/releases/tag/v0.1.0-preview.1),
+with the client guide and SHA-256 checksum. This preview does not establish Windows
+installation success or readiness for client distribution.
 
 ## Implementation
 

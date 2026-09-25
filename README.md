@@ -7,7 +7,14 @@ or internet connection is needed on the client's computer.
 
 ## For the client
 
-1. Copy **WAV-Scribe-Setup-0.1.0-x64.exe** to the Windows computer, for example on a USB drive.
+The [private Windows preview download](https://github.com/LauraFlorey/wav-scribe/releases/tag/v0.1.0-preview.1)
+contains the installer and a short client guide. Accept the repository invitation
+and sign in to GitHub to open it. This preview is for Windows installation testing;
+it is unsigned and has not yet been tested on Windows.
+
+1. Under **Assets** on the download page, download **WAV-Scribe-Setup-0.1.0-x64.exe**.
+   The source-code ZIP is not the installer. You can also copy the installer to an
+   offline Windows computer on a USB drive.
 2. Run the installer, approve the Windows administrator prompt, and follow the setup steps.
 3. Open **WAV Scribe** from the desktop or Start menu.
 4. Click **Add WAV recordings**, select files, and click **Transcribe recordings**.
@@ -72,7 +79,8 @@ The shared default branch is `main`. Laura's original working branch is
 
 The installer, model, native engine, dependencies, local recordings and generated
 working files are excluded from Git. The build script retrieves the required build
-assets. Share the finished installer separately; it is not part of the source push.
+assets. Finished installers are shared separately as release assets; they are not
+part of the source push. The current private preview is linked above.
 
 ## Develop and verify
 
