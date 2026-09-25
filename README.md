@@ -51,6 +51,30 @@ The installer installs for all users and requires administrator approval to inst
 the included Microsoft runtime. That runtime is not removed when uninstalling WAV Scribe.
 Saved transcripts and original audio are also preserved when uninstalling.
 
+## Put this repository on GitHub
+
+The source is already committed in a standalone local Git repository. It has no
+GitHub remote yet. Create an empty GitHub repository named `wav-scribe` under your
+account, choosing the visibility you want. Do not initialize it with a README,
+license, or `.gitignore`, because this project already contains its starting files.
+
+Open a terminal in this project folder, replace `YOUR-USERNAME` below with your
+GitHub username, and run:
+
+```sh
+git remote add origin https://github.com/YOUR-USERNAME/wav-scribe.git
+git push -u origin HEAD:main
+```
+
+This uploads the current source as the GitHub repository's `main` branch. The local
+working branch is `codex/initial-app`. For later uploads from that branch, use
+`git push origin HEAD:main`.
+
+The installer, model, native engine, dependencies, local recordings and generated
+working files are excluded from Git. The build script retrieves the required build
+assets. Share the finished installer separately; it is not part of the source push.
+No GitHub repository has been created and nothing has been pushed by this setup.
+
 ## Develop and verify
 
 ```sh

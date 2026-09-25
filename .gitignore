@@ -7,3 +7,12 @@ resources/*.exe
 .cache/
 test-results/
 .DS_Store
+Thumbs.db
+*.log
+.env
+.env.*
+!.env.example
+recordings/
+transcripts/
+*.wav
+*.WAV
