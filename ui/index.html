@@ -1,0 +1,47 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta http-equiv="Content-Security-Policy" content="default-src 'none'; script-src 'self'; style-src 'self'; img-src 'self'; connect-src 'none'; base-uri 'none'; form-action 'none'">
+  <title>WAV Scribe</title>
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+  <header class="app-header">
+    <div class="brand"><img src="icon.png" alt="" width="42" height="42"><div><strong>WAV Scribe</strong><span>Sound into words. Privately.</span></div></div>
+    <div class="privacy"><span aria-hidden="true">●</span> Works entirely offline</div>
+  </header>
+  <main>
+    <div class="intro"><div><p class="eyebrow">YOUR PERSONAL TRANSCRIPTION DESK</p><h1>Let your recordings speak.</h1><p>Choose a WAV file. Get a transcript. Keep it all on your computer.</p></div><span class="language">English · local speech model</span></div>
+    <div id="notice" class="notice" role="status" hidden></div>
+    <div class="workspace">
+      <section class="recordings panel" aria-labelledby="recordings-title">
+        <div class="panel-heading"><h2 id="recordings-title">Recordings <span id="count" class="count">0</span></h2><button id="clear" class="text-button" disabled>Clear</button></div>
+        <button id="choose" class="choose"><span class="plus" aria-hidden="true">＋</span><strong>Add WAV recordings</strong><span>Choose one or several files</span></button>
+        <div id="queue-empty" class="queue-empty"><div class="mini-wave" aria-hidden="true">▂ ▄ █ ▆ ▃ ▅ ▂</div><p>Your recordings will appear here.</p><span>Original audio stays untouched.</span></div>
+        <ul id="queue" aria-label="Recording queue"></ul>
+        <div class="run-controls">
+          <p id="run-status" role="status">Ready when you are.</p>
+          <progress id="progress" max="100" value="0" aria-label="Current recording transcription progress" hidden></progress>
+          <button id="start" class="primary" disabled>Transcribe recordings <span aria-hidden="true">→</span></button>
+          <button id="cancel" class="secondary" hidden>Stop transcription</button>
+          <p class="footnote">Long recordings can take a while.<br>You can keep working while we transcribe.</p>
+        </div>
+      </section>
+      <section class="transcript panel" aria-labelledby="transcript-title">
+        <div class="panel-heading"><h2 id="transcript-title">Transcript</h2><span id="word-count" class="muted">No recording selected</span></div>
+        <p id="selected-name" class="selected-name"></p>
+        <div id="transcript-empty" class="transcript-empty"><div class="paper-icon" aria-hidden="true"><span></span><span></span><span></span></div><h3>A little less typing.</h3><p>Your transcript will appear here when it’s ready.<br>Then review, edit, copy, or save it.</p><span class="local-note">No uploads. No accounts. No connection needed.</span></div>
+        <label class="sr-only" for="editor">Editable transcript</label>
+        <textarea id="editor" spellcheck="false" hidden placeholder="No speech was detected. Check the recording and try again."></textarea>
+        <div class="export-bar"><button id="copy" class="secondary" disabled>Copy text</button><div class="save-group"><label for="format" class="sr-only">Export format</label><select id="format" aria-label="Export format"><option value="txt">Text (.txt)</option><option value="srt">Subtitles (.srt)</option><option value="vtt">Web subtitles (.vtt)</option></select><button id="save" class="primary" disabled>Save as…</button></div></div>
+        <p id="export-note" class="export-note">Review names, numbers, and wording before sharing.</p>
+        <button id="show-export" class="text-button reveal" hidden>Show saved file</button>
+      </section>
+    </div>
+    <footer><span>Private by design. Your audio stays yours.</span><span id="version">WAV Scribe</span></footer>
+  </main>
+  <script src="app.js"></script>
+</body>
+</html>

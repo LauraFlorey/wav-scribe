@@ -1,0 +1,9 @@
+node_modules/
+dist/
+resources/native/
+resources/models/
+resources/*.zip
+resources/*.exe
+.cache/
+test-results/
+.DS_Store

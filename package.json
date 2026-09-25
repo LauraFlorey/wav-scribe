@@ -1,0 +1,83 @@
+{
+  "name": "wav-scribe",
+  "version": "0.1.0",
+  "description": "Private, offline WAV transcription for Windows",
+  "author": "Laura Florey",
+  "private": true,
+  "license": "UNLICENSED",
+  "main": "src/main.cjs",
+  "engines": {
+    "node": ">=22"
+  },
+  "scripts": {
+    "start": "electron .",
+    "test": "node --test tests/*.test.cjs",
+    "test:integration": "node scripts/integration.cjs",
+    "prepare:assets": "node scripts/prepare-assets.cjs",
+    "build:win": "npm run prepare:assets && npm test && electron-builder --win nsis --x64 --publish never",
+    "check": "node --check src/main.cjs && node --check src/core.cjs && node --check src/preload.cjs && node --check ui/app.js"
+  },
+  "devDependencies": {
+    "@playwright/test": "1.63.0",
+    "adm-zip": "0.6.1",
+    "electron": "44.4.5",
+    "electron-builder": "26.15.3"
+  },
+  "build": {
+    "toolsets": { "nsis": "1.2.1" },
+    "appId": "com.lauraflorey.wavscribe",
+    "productName": "WAV Scribe",
+    "asar": true,
+    "files": [
+      "src/**",
+      "ui/**",
+      "package.json"
+    ],
+    "directories": {
+      "output": "dist",
+      "buildResources": "build"
+    },
+    "extraResources": [
+      {
+        "from": "resources/native/win32-x64",
+        "to": "native"
+      },
+      {
+        "from": "resources/models",
+        "to": "models"
+      },
+      {
+        "from": "resources/licenses",
+        "to": "licenses"
+      },
+      {
+        "from": "resources/vc_redist.x64.exe",
+        "to": "vc_redist.x64.exe"
+      }
+    ],
+    "win": {
+      "target": [
+        {
+          "target": "nsis",
+          "arch": [
+            "x64"
+          ]
+        }
+      ],
+      "icon": "build/icon.png",
+      "signExecutable": false,
+      "artifactName": "WAV-Scribe-Setup-${version}-x64.${ext}"
+    },
+    "nsis": {
+      "oneClick": false,
+      "perMachine": true,
+      "allowElevation": true,
+      "include": "build/installer.nsh",
+      "allowToChangeInstallationDirectory": true,
+      "createDesktopShortcut": true,
+      "createStartMenuShortcut": true,
+      "deleteAppDataOnUninstall": true,
+      "runAfterFinish": true
+    }
+  }
+}
